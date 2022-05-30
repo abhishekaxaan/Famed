@@ -19,7 +19,11 @@ const Nav = ({ colorLogo, setShowModal, setIsSignUp }) => {
                         <div className="logo-container">
                               <img
                                     className="logo"
-                                    src={colorLogo ? LogoColored : LogoWhite}
+                                    src={
+                                          authToken / colorLogo
+                                                ? LogoColored
+                                                : LogoWhite
+                                    }
                                     alt=""
                               />
                         </div>
