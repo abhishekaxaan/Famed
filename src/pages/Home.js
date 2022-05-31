@@ -1,6 +1,8 @@
 import React from 'react'
 // import { useState } from 'react'
 import Nav from '../components/Nav'
+import FollowersColumn from '../components/FollowersColumn'
+// import FrontOverlay from '../components/FrontOverlay'
 // import AuthModal from '../components/AuthModal'
 
 const Home = ({ authToken }) => {
@@ -14,13 +16,18 @@ const Home = ({ authToken }) => {
       // }
 
       return (
-            <div className="home">
+            <div>
                   <Nav
                         colorLogo={false}
                         authToken={authToken}
                         // setShowModal={setShowModal}
                         // setIsSignUp={setIsSignUp}
                   />
+                  <div className="home">
+                        <FollowersColumn />
+                        <div className="feed">FEED</div>
+                        <div className="suggestedBox">SuggestedBox</div>
+                  </div>
             </div>
       )
 }

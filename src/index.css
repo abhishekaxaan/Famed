@@ -3,8 +3,9 @@
 html body {
       margin: 0;
       padding: 0;
-      background-color: aqua;
+      background-color: rgb(209, 224, 224);
       font-family: 'Readex Pro', sans-serif;
+      /* text-align: center; */
 }
 
 /*====================NAV====================*/
@@ -13,6 +14,7 @@ nav {
       /* width: 100%; */
       /* height: 50px; */
       display: flex;
+
       justify-content: space-between;
       padding: 10px;
 }
@@ -40,16 +42,23 @@ nav {
 
 /*====================HOME====================*/
 
-.frontOverlay {
+.home {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+}
+
+/* .frontOverlay {
       position: relative;
       width: 100vw;
       height: 100vh;
       justify-content: space-evenly;
       background: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.25)),
             url('./images/fmed-bg2.jpg');
-      /* background-image: url('./images/fmed-bg1.jpgs'); */
+      background-image: url('./images/fmed-bg1.jpgs');
       background-size: cover;
-}
+} */
 
 .overlay {
       margin-top: 150px;
@@ -145,4 +154,93 @@ nav {
 
 .authModal h2 {
       text-align: center;
+}
+
+/*====================ONBOARDING====================*/
+
+h2 {
+      text-align: center;
+      font-style: italic;
+}
+
+/* .onboarding {
+      width: 100vw;
+      height: 100%;
+} */
+
+.onboarding form {
+      display: flex;
+      justify-content: center;
+}
+
+.onboarding form section {
+      display: flex;
+      flex-direction: column;
+      margin: 50px;
+}
+
+.onboarding .fullName {
+      display: flex;
+      flex-direction: row;
+}
+
+.onboarding form input {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 35px 0;
+      margin-right: 25px;
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: 2px solid gray;
+}
+
+.dobInput {
+      display: flex;
+      flex-direction: row;
+}
+
+.dobInput input {
+      margin-right: 30px;
+      width: 8%;
+}
+
+.genderInput {
+      display: flex;
+      flex-direction: row;
+}
+
+.genderInput label {
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: 2px solid gray;
+      margin-top: 25px;
+      margin-right: 25px;
+}
+
+.genderInput input[type='radio'] {
+      display: none;
+}
+
+.genderInput input[type='radio']:checked + label {
+      border: solid 2px rgb(221, 39, 22);
+}
+
+.showGender input[type='checkbox'] {
+      display: inline-block;
+}
+
+.onboarding form input[type='submit'] {
+      background-color: rgb(174, 186, 194);
+      text-transform: uppercase;
+      font-weight: 400;
+      border: none;
+}
+
+.onboarding form input[type='submit']:hover {
+      background-color: rgb(180, 179, 179);
+}
+
+.onboarding form input[type='submit']:active {
+      background-color: rgb(226, 115, 115);
 }

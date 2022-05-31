@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import Nav from '../components/Nav'
+// import Nav from '../components/Nav'
 import AuthModal from '../components/AuthModal'
 
-const Home = ({ authToken }) => {
+const FrontOverlay = () => {
       const [showModal, setShowModal] = useState(false)
       const [isSignUp, setIsSignUp] = useState(true)
 
@@ -15,12 +15,12 @@ const Home = ({ authToken }) => {
 
       return (
             <div className="frontOverlay">
-                  <Nav
+                  {/* <Nav
                         colorLogo={false}
                         authToken={authToken}
                         setShowModal={setShowModal}
                         setIsSignUp={setIsSignUp}
-                  />
+                  /> */}
                   <div className="overlay">
                         <h1 className="tagline">Make Videos & Get Fame</h1>
                         <button
