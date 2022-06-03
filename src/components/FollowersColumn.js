@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FollowersColumn = () => {
-      return <div>FollowersColumn</div>
+      return <div className="followersColumn">FollowersColumn</div>
 }
 
 export default FollowersColumn

@@ -1,15 +1,41 @@
 import React from 'react'
-// import { useState } from 'react'
+import { useState } from 'react'
 import Nav from '../components/Nav'
 
 const Onboarding = () => {
+      const [formData, setFormData] = useState({
+            userID: '',
+            firstName: '',
+            middleName: '',
+            lastName: '',
+            dobDay: '',
+            dobMonth: '',
+            dobYear: '',
+            genderIdentity: 'male',
+            showGender: '',
+            url: '',
+      })
+
       const handleSubmit = () => {
             console.log('onboarding submitted successfully')
       }
 
-      const handleChange = () => {
-            console.log('change')
+      const handleChange = (e) => {
+            console.log('e', e)
+            const value =
+                  e.target.type === 'checkbox'
+                        ? e.target.checked
+                        : e.target.value
+            const name = e.target.name
+            console.log('value' + value, 'name' + name)
+
+            setFormData((prevState) => ({
+                  ...prevState,
+                  [name]: value,
+            }))
       }
+
+      console.log(formData)
 
       return (
             <div>
@@ -26,7 +52,7 @@ const Onboarding = () => {
                                                 name="firstName"
                                                 placeholder="First Name"
                                                 required={true}
-                                                value={''}
+                                                value={formData.firstName}
                                                 onChange={handleChange}
                                           />
                                           <input
@@ -35,7 +61,7 @@ const Onboarding = () => {
                                                 name="middleName"
                                                 placeholder="Middle Name (optional)"
                                                 required={false}
-                                                value={''}
+                                                value={formData.middleName}
                                                 onChange={handleChange}
                                           />
                                           <input
@@ -44,18 +70,19 @@ const Onboarding = () => {
                                                 name="lastName"
                                                 placeholder="Last Name"
                                                 required={true}
-                                                value={''}
+                                                value={formData.lastName}
                                                 onChange={handleChange}
                                           />
                                     </div>
                                     <label>Birthday</label>
-                                    <div className="dobInput">
+                                    <div className="dob">
                                           <input
                                                 id="dobDay"
                                                 type="number"
                                                 name="dobDay"
                                                 placeholder="DD"
                                                 required={true}
+                                                value={formData.dobDay}
                                                 onChange={handleChange}
                                           />
                                           <input
@@ -64,6 +91,7 @@ const Onboarding = () => {
                                                 name="dobMonth"
                                                 placeholder="MM"
                                                 required={true}
+                                                value={formData.dobMonth}
                                                 onChange={handleChange}
                                           />
                                           <input
@@ -72,18 +100,22 @@ const Onboarding = () => {
                                                 name="dobYear"
                                                 placeholder="YYYY"
                                                 required={true}
+                                                value={formData.dobYear}
                                                 onChange={handleChange}
                                           />
                                     </div>
-                                    <label> Gender</label>
-                                    <div className="genderInput">
+                                    <label>Gender</label>
+                                    <div className="gender">
                                           <input
                                                 id="maleGenderIdentity"
                                                 type="radio"
                                                 name="genderIdentity"
                                                 value="male"
                                                 onChange={handleChange}
-                                                checked={false}
+                                                checked={
+                                                      formData.genderIdentity ===
+                                                      'male'
+                                                }
                                           />
                                           <label htmlFor="maleGenderIdentity">
                                                 MALE
@@ -94,7 +126,10 @@ const Onboarding = () => {
                                                 name="genderIdentity"
                                                 value="female"
                                                 onChange={handleChange}
-                                                checked={false}
+                                                checked={
+                                                      formData.genderIdentity ===
+                                                      'female'
+                                                }
                                           />
                                           <label htmlFor="femaleGenderIdentity">
                                                 FEMALE
@@ -105,7 +140,10 @@ const Onboarding = () => {
                                                 name="genderIdentity"
                                                 value="trans"
                                                 onChange={handleChange}
-                                                checked={false}
+                                                checked={
+                                                      formData.genderIdentity ===
+                                                      'trans'
+                                                }
                                           />
                                           <label htmlFor="transGenderIdentity">
                                                 TRANS
@@ -117,7 +155,7 @@ const Onboarding = () => {
                                                 type="checkbox"
                                                 name="showGender"
                                                 onChange={handleChange}
-                                                checked={false}
+                                                checked={formData.showGender}
                                           />
                                           <label htmlFor="showGender">
                                                 Show Gender on my Profile.
@@ -134,7 +172,9 @@ const Onboarding = () => {
                                           onChange={handleChange}
                                           required={true}
                                     />
-                                    <div className="pictureContainer"></div>
+                                    <div className="pictureContainer">
+                                          <img src={formData.url} alt="" />
+                                    </div>
                               </section>
                         </form>
                   </div>

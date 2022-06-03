@@ -2,6 +2,8 @@ import React from 'react'
 // import { useState } from 'react'
 import Nav from '../components/Nav'
 import FollowersColumn from '../components/FollowersColumn'
+import Feed from '../components/Feed'
+import ChatContainer from '../components/ChatContainer'
 // import FrontOverlay from '../components/FrontOverlay'
 // import AuthModal from '../components/AuthModal'
 
@@ -25,8 +27,14 @@ const Home = ({ authToken }) => {
                   />
                   <div className="home">
                         <FollowersColumn />
-                        <div className="feed">FEED</div>
-                        <div className="suggestedBox">SuggestedBox</div>
+                        <div className="feed">
+                              <Feed />
+                              <Feed />
+                              <Feed />
+                              <Feed />
+                        </div>
+
+                        <ChatContainer />
                   </div>
             </div>
       )
